@@ -44,12 +44,12 @@
 /// in all application modules (*.cpp files) that use QP/C++.
 
 //****************************************************************************
-#include "qf_port.hpp"      // QF/C++ port from the port directory
-#include "qassert.h"        // QP assertions
+#include "./qp-arduino/qf_port.hpp"      // QF/C++ port from the port directory
+#include "./qp-arduino/qassert.h"        // QP assertions
 #ifdef Q_SPY                // software tracing enabled?
-    #include "qs_port.hpp"  // QS/C++ port from the port directory
+    #include "./qp-arduino/qs_port.hpp"  // QS/C++ port from the port directory
 #else
-    #include "qs_dummy.hpp" // QS/C++ dummy (inactive) interface
+    #include "./qp-arduino/qs_dummy.hpp" // QS/C++ dummy (inactive) interface
 #endif
 
 //****************************************************************************
