@@ -17,10 +17,9 @@
 - Fork Maintainer: Peter Polidorop
 - Email: peter@polidoro.io
 - Copyright: Quantum Leaps, LLC
-- Documentation:
-  - [[./documentation/source/README.md]]
-  - https://html-preview.githuh.io/janelia-arduino/qp-arduino/tree/main/documentation/qpcpp/index.html
-  - [[./documentation/qm/index.html]]
+- Source Repository Documentation: [[./documentation/source/README.md]]
+- qpcpp documentation: https://html-preview.github.io/janelia-arduino/qp-arduino/tree/main/documentation/qpcpp/index.html
+- qm documentation: [[./documentation/qm/index.html]]
 - References:
   - https://www.state-machine.com/arduino
 
