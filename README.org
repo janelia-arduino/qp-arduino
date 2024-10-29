@@ -2,18 +2,34 @@
 #+AUTHOR: Peter Polidoro
 #+EMAIL: peter@polidoro.io
 
+* Repository Information
+- Name: qp-arduino
+- Description: QP real-time embedded framework for Arduino
+- Version: 6.9.5
+- qpcpp version: 6.9.4
+- qm version: 5.1.3
+- Release Date: 2024-10-29
+- Creation Date: 2017-01-30
+- License: GPLv3
+- Forked From Repository: https://github.com/QuantumLeaps/qp-arduino
+- URL: https://github.com/janelia-arduino/qp-arduino
+- Author: Quantum Leaps
+- Fork Maintainer: Peter Polidorop
+- Email: peter@polidoro.io
+- Copyright: Quantum Leaps, LLC
+- Documentation:
+  - ./documentation/source/README.md
+  - ./documentation/qpcpp/index.html
+  - ./documentation/qm/index.html
+- References:
+  - https://www.state-machine.com/arduino
+
 * Development
 
-** Download and Install QM
-
-#+BEGIN_SRC shnn
-cd ~ && rm -rf qp && mkdir qp && cd qp
-curl -OL https://github.com/QuantumLeaps/qm/releases/download/v5.1.3/qm_5.1.3-linux64.zip
-unzip qm_5.1.3-linux64.zip && rm qm_5.1.3-linux64.zip && mv qm qm-5.1.3
-chmod u+x qm-5.1.3/bin/qm && chmod u+x qm-5.1.3/bin/qm.sh
-#+END_SRC
-
 ** PlatformIO
+
+PlatformIO can be used as an alternative to the Arduino IDE for compiling and
+uploading Arduino code to embedded boards using a command line interface.
 
 *** Install PlatformIO Core
 
@@ -62,21 +78,16 @@ After this file is installed, physically unplug and reconnect your board.
 
 *** Compile the firmware
 
-
 **** Gnu/Linux
 
 #+BEGIN_SRC sh
 make teensy-firmware
-make mega-firmware
-make uno-firmware
 #+END_SRC
 
 **** Other
 
 #+BEGIN_SRC sh
-pio run -e teensy40
-pio run -e mega
-pio run -e uno
+pio run -e teensy41
 #+END_SRC
 
 *** Upload the firmware
@@ -85,16 +96,12 @@ pio run -e uno
 
 #+BEGIN_SRC sh
 make teensy-upload
-make mega-upload
-make uno-upload
 #+END_SRC
 
 **** Other
 
 #+BEGIN_SRC sh
-pio run -e teensy40 -t upload
-pio run -e mega -t upload
-pio run -e uno -t upload
+pio run -e teensy41 -t upload
 #+END_SRC
 
 *** Serial Terminal Monitor
@@ -111,4 +118,15 @@ make monitor
 pio device monitor
 #+END_SRC
 
+
+** QM Graphical Modeling and Code Generation Tool
+
+*** Download and Install
+
+#+BEGIN_SRC shnn
+cd ~ && rm -rf qp && mkdir qp && cd qp
+curl -OL https://github.com/QuantumLeaps/qm/releases/download/v5.1.3/qm_5.1.3-linux64.zip
+unzip qm_5.1.3-linux64.zip && rm qm_5.1.3-linux64.zip && mv qm qm-5.1.3
+chmod u+x qm-5.1.3/bin/qm && chmod u+x qm-5.1.3/bin/qm.sh
+#+END_SRC
 
