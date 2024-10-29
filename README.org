@@ -18,9 +18,9 @@
 - Email: peter@polidoro.io
 - Copyright: Quantum Leaps, LLC
 - Documentation:
-  - ./documentation/source/README.md
-  - ./documentation/qpcpp/index.html
-  - ./documentation/qm/index.html
+  - [[./documentation/source/README.md]]
+  - [[./documentation/qpcpp/index.html]]
+  - [[./documentation/qm/index.html]]
 - References:
   - https://www.state-machine.com/arduino
 
