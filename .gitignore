@@ -35,7 +35,6 @@ lint*.txt
 *.qlc
 JLink*.*
 
-qm/
 eclipse/
 test/
 test_ports/
