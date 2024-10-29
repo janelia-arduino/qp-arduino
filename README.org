@@ -2,6 +2,10 @@
 #+AUTHOR: Peter Polidoro
 #+EMAIL: peter@polidoro.io
 
+* Documentation
+
+https://janelia-arduino.github.io/qp-arduino
+
 * Repository Information
 - Name: qp-arduino
 - Description: QP real-time embedded framework for Arduino
@@ -17,9 +21,15 @@
 - Fork Maintainer: Peter Polidorop
 - Email: peter@polidoro.io
 - Copyright: Quantum Leaps, LLC
-- Documentation: https://janelia-arduino.github.io/qp-arduino
 - References:
   - https://www.state-machine.com/arduino
+
+* Description
+
+The Quantum Leaps’ QP™ real-time embedded frameworks (RTEFs) and the QM™
+modeling tool complement the Arduino platform and provide everything you need to
+program Arduino graphically with event-driven active objects and modern
+hierarchical state machines.
 
 * Development
 
