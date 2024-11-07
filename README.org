@@ -126,14 +126,30 @@ pio device monitor
 #+END_SRC
 
 
-** QM Graphical Modeling and Code Generation Tool
+** QP
 
-*** Download and Install
+*** QM Graphical Modeling and Code Generation Tool
+
+**** Download and Install
 
 #+BEGIN_SRC shnn
 cd ~ && rm -rf qp && mkdir qp && cd qp
 curl -OL https://github.com/QuantumLeaps/qm/releases/download/v5.1.3/qm_5.1.3-linux64.zip
 unzip qm_5.1.3-linux64.zip && rm qm_5.1.3-linux64.zip && mv qm qm-5.1.3
 chmod u+x qm-5.1.3/bin/qm && chmod u+x qm-5.1.3/bin/qm.sh
+alias qm='~/qp/qm-5.1.3/bin/qm.sh'
+#+END_SRC
+
+*** Qtools
+
+**** Download and Install
+
+#+BEGIN_SRC shnn
+cd ~/qp
+curl -OL https://github.com/QuantumLeaps/qtools/releases/download/v6.9.3/qtools-posix_6.9.3.zip
+unzip qtools-posix_6.9.3.zip && rm qtools-posix_6.9.3.zip && mv qtools qtools-6.9.3
+cd qtools-6.9.3/qspy/posix
+make
+alias qspy='~/qp/qm-6.9.3/bin/qspy'
 #+END_SRC
 
