@@ -150,6 +150,6 @@ curl -OL https://github.com/QuantumLeaps/qtools/releases/download/v6.9.3/qtools-
 unzip qtools-posix_6.9.3.zip && rm qtools-posix_6.9.3.zip && mv qtools qtools-6.9.3
 cd qtools-6.9.3/qspy/posix
 make
-alias qspy='~/qp/qm-6.9.3/bin/qspy'
+alias qspy='~/qp/qtools-6.9.3/bin/qspy'
 #+END_SRC
 
