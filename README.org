@@ -43,8 +43,10 @@ uploading Arduino code to embedded boards using a command line interface.
 [[https://docs.platformio.org/en/latest/core/installation/index.html]]
 
 #+BEGIN_SRC sh
+sudo apt install python3 python3-venv
 python3 -m venv .venv
 source .venv/bin/activate
+pip install pip --upgrade
 pip install platformio
 pio --version
 #+END_SRC
