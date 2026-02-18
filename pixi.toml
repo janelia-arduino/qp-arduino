@@ -1,0 +1,127 @@
+[workspace]
+name = "qp-arduino"
+version = "6.9.6"
+description = "QP real-time embedded framework for Arduino (ARM Cortex-M)."
+authors = ["Peter Polidoro <peter@polidoro.io>"]
+channels = ["conda-forge"]
+
+# Supported pixi platforms. Including these ensures pixi.lock can be solved
+# for each OS/arch (Linux/macOS/Windows).
+platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+# PlatformIO CLI (conda-forge, noarch). This provides the `pio` command.
+platformio = ">=6.1.16,<7"
+# Explicit Python for repo helper scripts (quantum_leaps_tools.py)
+python = ">=3.12,<3.13"
+
+[tasks]
+# List connected devices/ports (helps users discover COM3, /dev/ttyACM0, /dev/cu.usbmodem*, etc.)
+ports = "pio device list"
+
+# --------------------------------------------------------------------------------------
+# PlatformIO build/upload tasks
+#
+# We select which example to build by setting PLATFORMIO_SRC_DIR (instead of editing
+# platformio.ini). The PlatformIO project configuration stays stable, and examples are
+# selected entirely via pixi tasks.
+# --------------------------------------------------------------------------------------
+
+# Default example: examples/dpp_bsp-teensy4 (Teensy 4.1)
+[tasks.build]
+cmd = "pio run -e teensy41"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/dpp_bsp-teensy4" }
+
+[tasks.upload]
+args = [{ arg = "port", default = "/dev/ttyACM0" }]
+cmd = "pio run -e teensy41 -t upload --upload-port {{ port }}"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/dpp_bsp-teensy4" }
+
+# Teensy 4.1 examples
+[tasks.build-blinky-bsp-teensy4]
+cmd = "pio run -e teensy41"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/blinky_bsp-teensy4" }
+
+[tasks.upload-blinky-bsp-teensy4]
+args = [{ arg = "port", default = "/dev/ttyACM0" }]
+cmd = "pio run -e teensy41 -t upload --upload-port {{ port }}"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/blinky_bsp-teensy4" }
+
+# Arduino Due / ATSAM3X8E examples
+[tasks.build-blinky-sam]
+cmd = "pio run -e due"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/blinky-sam" }
+
+[tasks.upload-blinky-sam]
+args = [{ arg = "port", default = "/dev/ttyACM0" }]
+cmd = "pio run -e due -t upload --upload-port {{ port }}"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/blinky-sam" }
+
+[tasks.build-blinky2-sam]
+cmd = "pio run -e due"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/blinky2-sam" }
+
+[tasks.upload-blinky2-sam]
+args = [{ arg = "port", default = "/dev/ttyACM0" }]
+cmd = "pio run -e due -t upload --upload-port {{ port }}"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/blinky2-sam" }
+
+[tasks.build-blinky-bsp-sam]
+cmd = "pio run -e due"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/blinky_bsp-sam" }
+
+[tasks.upload-blinky-bsp-sam]
+args = [{ arg = "port", default = "/dev/ttyACM0" }]
+cmd = "pio run -e due -t upload --upload-port {{ port }}"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/blinky_bsp-sam" }
+
+[tasks.build-dpp-bsp-sam]
+cmd = "pio run -e due"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/dpp_bsp-sam" }
+
+[tasks.upload-dpp-bsp-sam]
+args = [{ arg = "port", default = "/dev/ttyACM0" }]
+cmd = "pio run -e due -t upload --upload-port {{ port }}"
+env = { PLATFORMIO_SRC_DIR = "$PIXI_PROJECT_ROOT/examples/dpp_bsp-sam" }
+
+# --------------------------------------------------------------------------------------
+# Quantum Leaps host tools pinned for qp-arduino compatibility:
+#   QM     5.2.3
+#   QTools 6.9.3 (QSPY)
+#
+# Tools are installed into: ./.tools/quantum-leaps/
+# Suggestion: add ".tools/" to .gitignore to avoid committing downloads.
+# --------------------------------------------------------------------------------------
+
+# Install both QM and QTools
+[tasks.ql-install]
+cmd = "python tools/quantum_leaps_tools.py install"
+
+# Launch QM (installs if missing)
+[tasks.qm]
+cmd = "python tools/quantum_leaps_tools.py qm"
+
+# Install QM only
+[tasks.qm-install]
+cmd = "python tools/quantum_leaps_tools.py qm --install-only"
+
+# Install QTools (and build qspy on Linux/macOS if needed)
+[tasks.qtools-install]
+cmd = "python tools/quantum_leaps_tools.py qtools-install"
+
+# Run QSPY (any args after 'qspy' are forwarded to qspy, e.g. -c /dev/ttyACM0 -b 115200)
+[tasks.qspy]
+cmd = "python tools/quantum_leaps_tools.py qspy"
+
+# Build tooling for qspy on POSIX
+[target.linux-64.dependencies]
+make = "*"
+c-compiler = "*"
+
+[target.osx-64.dependencies]
+make = "*"
+c-compiler = "*"
+
+[target.osx-arm64.dependencies]
+make = "*"
+c-compiler = "*"
