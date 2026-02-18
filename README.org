@@ -24,7 +24,7 @@ https://www.state-machine.com/arduino
 - Name: qp-arduino
 - Description: QP real-time embedded framework for Arduino (ARM Cortex-M)
 - Version: 6.9.7
-- qpcpp version: 6.9.4
+- qpcpp version: 6.9.3
 - QM version: 5.2.3
 - QTools version: 6.9.3
 - Release Date: 2026-02-18
