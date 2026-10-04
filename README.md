@@ -256,8 +256,11 @@ under a simple
   to the upstream qpcpp tag, the documented Arduino deltas, and the check that
   verifies them.
 - Each example directory has a `README.md`.
-- Upstream: [QP/C++ documentation](https://www.state-machine.com/qpcpp),
-  [QTools](https://www.state-machine.com/qtools).
+- <https://QuantumLeaps.github.io/qp-arduino/>: the QP/C++, QM and QTools
+  manuals that match each qp-arduino release, hosted so they stay available
+  after upstream moves on. The upstream sites,
+  [QP/C++](https://www.state-machine.com/qpcpp) and
+  [QTools](https://www.state-machine.com/qtools), document the newest QP.
 
 # How to Get Help?
 
